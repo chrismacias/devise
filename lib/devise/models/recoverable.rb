@@ -32,7 +32,7 @@ module Devise
 
       included do
         before_save do
-          if email_changed? || encrypted_password_changed?
+          if (email_changed? || encrypted_password_changed?) && email_was != ""
             clear_reset_password_token
           end
         end
